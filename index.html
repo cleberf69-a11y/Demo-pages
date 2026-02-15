@@ -1,0 +1,942 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Padaria Silber — Campo Grande (RJ)</title>
+  <meta name="description" content="Padaria Silber em Campo Grande, Rio de Janeiro. Endereço, telefone, rotas no Google Maps, avaliações e informações essenciais." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Padaria Silber — Campo Grande (RJ)" />
+  <meta property="og:description" content="Endereço, rotas, telefone e avaliações da Padaria Silber em Campo Grande (RJ)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Padaria Silber",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Estr. do Campinho, 650 - Campo Grande",
+      "addressLocality": "Rio de Janeiro",
+      "addressRegion": "RJ",
+      "postalCode": "23070-220",
+      "addressCountry": "BR"
+    },
+    "telephone": "+55-21-96464-1924",
+    "priceRange": "R$ 20–40 por pessoa",
+    "sameAs": ["https://instagram.com"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.4",
+      "ratingCount": "900"
+    }
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg: #0f0d0a;
+      --panel: #16120d;
+      --panel-2: #1b160f;
+      --text: #f7f2ea;
+      --muted: #cfc6ba;
+      --muted-2: #a79a8a;
+      --brand: #f2b36d;
+      --brand-2: #e08d4e;
+      --ok: #70d38b;
+      --bad: #ff7b7b;
+      --ring: rgba(242,179,109,.35);
+      --shadow: 0 12px 28px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(242,179,109,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(224,141,78,.12), transparent 60%),
+        linear-gradient(180deg, #0d0b08 0%, #0f0d0a 40%, #0c0a07 100%);
+      line-height: 1.5;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:focus, button:focus { outline: 2px solid var(--brand); outline-offset: 3px; }
+
+    .container{ max-width: var(--max); margin: 0 auto; padding: 0 16px; }
+    .spacer{ height: 72px; }
+
+    /* Header */
+    header{
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
+      background: rgba(12,10,7,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 0;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      min-width: 200px;
+    }
+    .logo{
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(242,179,109,.95), rgba(224,141,78,.85));
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+      display:grid; place-items:center;
+    }
+    .logo svg{ width: 22px; height: 22px; }
+    .brand strong{ display:block; font-size: 14px; letter-spacing: .2px; }
+    .brand span{ display:block; font-size: 12px; color: var(--muted-2); margin-top: -1px; }
+
+    .links{
+      display:flex; align-items:center; gap: 14px;
+    }
+    .links a{
+      font-size: 13px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .links a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+
+    .nav-actions{
+      display:flex; align-items:center; gap: 10px;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 8px 18px rgba(0,0,0,.12);
+      cursor:pointer;
+    }
+    .btn:hover{ background: rgba(255,255,255,.10); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(242,179,109,.95), rgba(224,141,78,.90));
+      color: #1a120b;
+      border-color: rgba(0,0,0,.12);
+    }
+    .btn.primary:hover{ filter: brightness(1.02); }
+
+    .icon{
+      width: 16px; height: 16px; display:inline-block;
+    }
+
+    .hamburger{
+      display:none;
+      padding: 10px 12px;
+    }
+
+    /* Mobile menu */
+    .mobile-menu{
+      display:none;
+      padding: 10px 0 14px;
+    }
+    .mobile-menu a{
+      display:block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+    }
+    .mobile-menu a:hover{ background: rgba(255,255,255,.06); color: var(--text); }
+
+    /* Sections */
+    section{ padding: 26px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap: 14px;
+      margin: 0 0 14px;
+    }
+    h2{
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: .2px;
+    }
+    .hint{ margin: 0; color: var(--muted-2); font-size: 13px; }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .pad{ padding: 16px; }
+
+    /* Hero */
+    .hero{
+      padding-top: 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+    }
+    .hero h1{
+      margin: 0 0 8px;
+      font-size: 34px;
+      letter-spacing: .2px;
+    }
+    .hero p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      max-width: 60ch;
+    }
+    .badges{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 14px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .badge strong{ color: var(--text); }
+    .badge .dot{
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--bad);
+      box-shadow: 0 0 0 4px rgba(255,123,123,.12);
+    }
+
+    .hero-ctas{
+      display:flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 10px;
+    }
+
+    .info-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .mini{
+      border-radius: var(--radius-sm);
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 12px;
+    }
+    .mini .k{ font-size: 12px; color: var(--muted-2); }
+    .mini .v{ margin-top: 4px; font-weight: 700; }
+    .mini button.linklike{
+      margin-top: 10px;
+      padding: 8px 10px;
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      cursor:pointer;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .mini button.linklike:hover{ background: rgba(255,255,255,.10); }
+
+    /* Two-column sections */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    /* Hours list */
+    .hours{
+      display:grid;
+      gap: 10px;
+    }
+    .hours-row{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .hours-row strong{ color: var(--text); }
+
+    /* Peak chart */
+    .chart{
+      display:grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-top: 10px;
+      align-items:end;
+    }
+    .bar{
+      display:flex; flex-direction: column; gap: 8px; align-items: center;
+    }
+    .bar .col{
+      width: 100%;
+      border-radius: 12px;
+      background: linear-gradient(180deg, rgba(242,179,109,.95), rgba(224,141,78,.70));
+      border: 1px solid rgba(0,0,0,.20);
+      box-shadow: 0 10px 18px rgba(0,0,0,.25);
+      height: 40px;
+    }
+    .bar .lbl{
+      font-size: 12px;
+      color: var(--muted-2);
+    }
+
+    /* Menu placeholders */
+    .menu-grid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .menu-item h3{
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+    .menu-item ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .note{
+      margin: 10px 0 0;
+      color: var(--muted-2);
+      font-size: 12px;
+    }
+
+    /* Reviews */
+    .stars{ display:inline-flex; gap: 2px; vertical-align: middle; }
+    .reviews-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .quote{
+      padding: 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+    }
+    .quote p{ margin: 0; color: var(--muted); font-size: 13px; }
+    .quote .who{ margin-top: 10px; color: var(--muted-2); font-size: 12px; }
+
+    /* Map */
+    .map{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      min-height: 360px;
+    }
+    iframe{ width:100%; height: 360px; border:0; display:block; }
+
+    /* Footer */
+    footer{
+      padding: 30px 0 34px;
+      color: var(--muted-2);
+      font-size: 12px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      margin-top: 18px;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .two-col{ grid-template-columns: 1fr; }
+      .reviews-grid{ grid-template-columns: 1fr; }
+      .menu-grid{ grid-template-columns: 1fr; }
+      .info-grid{ grid-template-columns: 1fr; }
+      .links{ display:none; }
+      .hamburger{ display:inline-flex; }
+      .mobile-menu.show{ display:block; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html { scroll-behavior: auto; }
+    }
+
+    /* Toast */
+    .toast{
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(22,18,13,.92);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 13px;
+      box-shadow: var(--shadow);
+      display:none;
+      z-index: 60;
+    }
+    .toast.show{ display:block; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="nav" aria-label="Barra de navegação">
+        <a class="brand" href="#visao-geral" aria-label="Ir para Visão geral">
+          <div class="logo" aria-hidden="true">
+            <!-- bread icon -->
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M7 9c0-3 2.5-5 5-5s5 2 5 5" stroke="#1a120b" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 9h12c1.7 0 3 1.3 3 3v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-4c0-1.7 1.3-3 3-3Z" fill="#1a120b" opacity=".18"/>
+              <path d="M6 9h12c1.7 0 3 1.3 3 3v4a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-4c0-1.7 1.3-3 3-3Z" stroke="#1a120b" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 13v4M12 13v4M15 13v4" stroke="#1a120b" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <strong>Padaria Silber</strong>
+            <span>Campo Grande · Rio de Janeiro</span>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Menu">
+          <a href="#visao-geral">Visão geral</a>
+          <a href="#cardapio">Cardápio</a>
+          <a href="#avaliacoes">Avaliações</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#rotas">Rotas</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button class="btn hamburger" id="btnMenu" aria-label="Abrir menu" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Menu
+          </button>
+
+          <a class="btn" href="tel:+5521964641924" aria-label="Ligar para a Padaria Silber">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6.5 3.5h3l1.2 5-2 1.2c1.3 2.5 3.3 4.5 5.8 5.8l1.2-2 5 1.2v3c0 1.1-.9 2-2 2C10.6 20.7 3.3 13.4 3.3 4.7c0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            Ligar
+          </a>
+
+          <a class="btn primary" href="#rotas" aria-label="Ver rotas no mapa">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="#1a120b" stroke-width="2"/>
+              <path d="M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" fill="#1a120b" opacity=".25"/>
+              <path d="M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" stroke="#1a120b" stroke-width="2"/>
+            </svg>
+            Rotas
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+        <a href="#visao-geral">Visão geral</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#rotas">Rotas</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="spacer" aria-hidden="true"></div>
+
+  <main class="container">
+    <!-- HERO / OVERVIEW -->
+    <section id="visao-geral" class="hero" aria-label="Visão geral">
+      <div class="hero-grid">
+        <div class="card pad">
+          <h1>Padaria Silber</h1>
+          <p>
+            Informações essenciais em um só lugar: endereço, telefone, rotas e um resumo das avaliações.
+            <br><span class="hint">Campo Grande · Rio de Janeiro (RJ)</span>
+          </p>
+
+          <div class="badges" role="list" aria-label="Resumo rápido">
+            <div class="badge" role="listitem" title="Status atual (informação estática)">
+              <span class="dot" aria-hidden="true"></span>
+              <strong>Fechado agora</strong>
+              <span>— Abre seg. às 06:00</span>
+            </div>
+
+            <div class="badge" role="listitem" title="Avaliação média">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17.7 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              <strong>4,4</strong>
+              <span>(900 avaliações)</span>
+            </div>
+
+            <div class="badge" role="listitem" title="Faixa de preço">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 7h10v14H7V7Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M9 7V5a3 3 0 0 1 6 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M9.5 11h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <strong>R$ 20–40</strong>
+              <span>por pessoa</span>
+            </div>
+
+            <div class="badge" role="listitem" title="Atendimento">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M4 10h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 10V8a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <strong>Refeição no local</strong>
+              <span>· Entrega: não</span>
+            </div>
+          </div>
+
+          <div class="hero-ctas" aria-label="Ações rápidas">
+            <a class="btn primary" href="https://www.google.com/maps?q=Padaria%20Silber%20Estr.%20do%20Campinho%2C%20650%20Campo%20Grande%20Rio%20de%20Janeiro%20RJ%2023070-220" target="_blank" rel="noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="#1a120b" stroke-width="2"/>
+                <path d="M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" fill="#1a120b" opacity=".25"/>
+                <path d="M12 12.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4Z" stroke="#1a120b" stroke-width="2"/>
+              </svg>
+              Rotas no Google Maps
+            </a>
+
+            <a class="btn" href="tel:+5521964641924">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.5 3.5h3l1.2 5-2 1.2c1.3 2.5 3.3 4.5 5.8 5.8l1.2-2 5 1.2v3c0 1.1-.9 2-2 2C10.6 20.7 3.3 13.4 3.3 4.7c0-1.1.9-2 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+              (21) 96464-1924
+            </a>
+
+            <a class="btn" href="https://instagram.com" target="_blank" rel="noreferrer">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+              </svg>
+              Instagram
+            </a>
+
+            <button class="btn" id="btnShare" type="button">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M16 8a3 3 0 1 0-2.8-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 12l8-4M8 12l8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M18 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Compartilhar
+            </button>
+          </div>
+        </div>
+
+        <aside class="card pad" aria-label="Informações principais">
+          <div class="section-title" style="margin-bottom:10px;">
+            <h2 style="font-size:16px;">Informações</h2>
+            <p class="hint">Resumo rápido</p>
+          </div>
+
+          <div class="info-grid">
+            <div class="mini">
+              <div class="k">Endereço</div>
+              <div class="v" id="addrText">Estr. do Campinho, 650 - Campo Grande, Rio de Janeiro - RJ, 23070-220</div>
+              <button class="linklike" type="button" id="btnCopyAddr" aria-label="Copiar endereço">Copiar endereço</button>
+            </div>
+
+            <div class="mini">
+              <div class="k">Telefone</div>
+              <div class="v" id="phoneText">(21) 96464-1924</div>
+              <button class="linklike" type="button" id="btnCopyPhone" aria-label="Copiar telefone">Copiar telefone</button>
+            </div>
+
+            <div class="mini">
+              <div class="k">Horário</div>
+              <div class="v">Fechado — Abre seg. às 06:00</div>
+              <div class="note">Horários completos: confirmar no local/Instagram.</div>
+            </div>
+
+            <div class="mini">
+              <div class="k">Nota</div>
+              <div class="v">4,4 ★ (900)</div>
+              <div class="note">Faixa: R$ 20–40 por pessoa.</div>
+            </div>
+          </div>
+
+          <div class="mini" style="margin-top:10px;">
+            <div class="k">Plus code</div>
+            <div class="v">4C2G+5Q Campo Grande, Rio de Janeiro - RJ</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- HOURS + PEAK TIMES -->
+    <section id="horarios" aria-label="Horários e horários de pico">
+      <div class="section-title">
+        <h2>Horários</h2>
+        <p class="hint">Informação disponível: abertura na segunda às 06:00</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card pad">
+          <div class="hours" aria-label="Lista de horários (parcial)">
+            <div class="hours-row"><strong>Status</strong><span style="color:var(--bad); font-weight:700;">Fechado agora</span></div>
+            <div class="hours-row"><strong>Segunda</strong><span>Abre às 06:00</span></div>
+            <div class="hours-row"><strong>Terça</strong><span>—</span></div>
+            <div class="hours-row"><strong>Quarta</strong><span>—</span></div>
+            <div class="hours-row"><strong>Quinta</strong><span>—</span></div>
+            <div class="hours-row"><strong>Sexta</strong><span>—</span></div>
+            <div class="hours-row"><strong>Sábado</strong><span>—</span></div>
+            <div class="hours-row"><strong>Domingo</strong><span>—</span></div>
+          </div>
+          <p class="note">Obs.: não inventei horários que você não forneceu. Se você me passar a grade completa, eu atualizo aqui.</p>
+        </div>
+
+        <div class="card pad">
+          <div class="section-title" style="margin-bottom:8px;">
+            <h2 style="font-size:16px;">Horários de pico (Domingos)</h2>
+            <p class="hint">Gráfico ilustrativo</p>
+          </div>
+
+          <p class="hint" style="margin:0 0 10px;">Barras apenas para visual do site (valores fictícios).</p>
+
+          <div class="chart" role="img" aria-label="Gráfico de horários de pico aos domingos: 06, 09, 12, 15, 18, 21">
+            <!-- Heights are illustrative -->
+            <div class="bar" aria-label="06 horas">
+              <div class="col" style="height: 28px;"></div>
+              <div class="lbl">06h</div>
+            </div>
+            <div class="bar" aria-label="09 horas">
+              <div class="col" style="height: 72px;"></div>
+              <div class="lbl">09h</div>
+            </div>
+            <div class="bar" aria-label="12 horas">
+              <div class="col" style="height: 110px;"></div>
+              <div class="lbl">12h</div>
+            </div>
+            <div class="bar" aria-label="15 horas">
+              <div class="col" style="height: 86px;"></div>
+              <div class="lbl">15h</div>
+            </div>
+            <div class="bar" aria-label="18 horas">
+              <div class="col" style="height: 48px;"></div>
+              <div class="lbl">18h</div>
+            </div>
+            <div class="bar" aria-label="21 horas">
+              <div class="col" style="height: 22px;"></div>
+              <div class="lbl">21h</div>
+            </div>
+          </div>
+
+          <p class="note">Se você quiser, eu troco esse bloco por dados reais (quando você tiver a info do Google/relatório).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="cardapio" aria-label="Cardápio">
+      <div class="section-title">
+        <h2>Cardápio</h2>
+        <p class="hint">Sem itens detalhados — seção com placeholders</p>
+      </div>
+
+      <div class="card pad">
+        <p class="hint" style="margin:0 0 10px;">
+          Aqui é só um “esqueleto” para o site ficar completo. Os itens variam; use o Instagram ou o balcão para o cardápio do dia.
+        </p>
+
+        <div class="menu-grid" aria-label="Categorias do cardápio (exemplo)">
+          <div class="menu-item mini">
+            <h3>Pães</h3>
+            <ul>
+              <li>Exemplos: pão francês, pão doce, pão integral</li>
+              <li>Opções do dia (sob consulta)</li>
+            </ul>
+          </div>
+          <div class="menu-item mini">
+            <h3>Doces</h3>
+            <ul>
+              <li>Exemplos: bolo do dia, sonhos, tortas</li>
+              <li>Vitrine rotativa</li>
+            </ul>
+          </div>
+          <div class="menu-item mini">
+            <h3>Salgados</h3>
+            <ul>
+              <li>Exemplos: coxinha, empadas, folhados</li>
+              <li>Lanches rápidos</li>
+            </ul>
+          </div>
+          <div class="menu-item mini">
+            <h3>Bebidas</h3>
+            <ul>
+              <li>Exemplos: café, sucos, refrigerantes</li>
+              <li>Consulte opções</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="hero-ctas" style="margin-top:14px;">
+          <a class="btn" href="https://instagram.com" target="_blank" rel="noreferrer">
+            Ver no Instagram
+          </a>
+          <a class="btn primary" href="tel:+5521964641924">
+            Pedir informação por telefone
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="avaliacoes" aria-label="Avaliações">
+      <div class="section-title">
+        <h2>Avaliações</h2>
+        <p class="hint">4,4 (900 avaliações)</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card pad">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div>
+              <div style="font-size:34px; font-weight:800; line-height:1;">4,4</div>
+              <div class="hint">Baseado em ~900 avaliações</div>
+            </div>
+
+            <div aria-label="Estrelas de avaliação" title="Representação visual">
+              <span class="stars" aria-hidden="true">
+                <!-- 4 full + 1 partial look -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17.7 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3Z" fill="currentColor"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17.7 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3Z" fill="currentColor"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17.7 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3Z" fill="currentColor"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17.7 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3Z" fill="currentColor"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" opacity=".45"><path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17.7 6.6 19.8l1-6.1-4.4-4.3 6.1-.9L12 3Z" fill="currentColor"/></svg>
+              </span>
+              <div class="hint" style="text-align:right;">(visual)</div>
+            </div>
+          </div>
+
+          <p class="note">Depoimentos abaixo são ilustrativos (não representam avaliações reais individuais).</p>
+
+          <div class="reviews-grid" style="margin-top:10px;">
+            <div class="quote">
+              <p>“Lugar prático para um café rápido e resolver o básico do dia a dia.”</p>
+              <div class="who">Cliente local · depoimento ilustrativo</div>
+            </div>
+            <div class="quote">
+              <p>“Atendimento ágil. Bom para passar e pegar algo sem enrolação.”</p>
+              <div class="who">Visitante · depoimento ilustrativo</div>
+            </div>
+            <div class="quote">
+              <p>“Boa opção no bairro quando quero algo simples e direto.”</p>
+              <div class="who">Morador · depoimento ilustrativo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card pad" aria-label="Atendimento e preço">
+          <div class="section-title" style="margin-bottom:10px;">
+            <h2 style="font-size:16px;">Atendimento</h2>
+            <p class="hint">Resumo</p>
+          </div>
+
+          <div class="hours-row">
+            <strong>Refeição no local</strong>
+            <span style="color:var(--ok); font-weight:800;">Sim</span>
+          </div>
+          <div class="hours-row" style="margin-top:10px;">
+            <strong>Entrega</strong>
+            <span style="color:var(--muted); font-weight:800;">Não</span>
+          </div>
+          <div class="hours-row" style="margin-top:10px;">
+            <strong>Faixa de preço</strong>
+            <span style="font-weight:800;">R$ 20–40</span>
+          </div>
+
+          <div class="mini" style="margin-top:10px;">
+            <div class="k">Dica</div>
+            <div class="v" style="font-size:14px;">Quer “salvar”?</div>
+            <p class="hint" style="margin-top:6px;">
+              No celular: abra este site no navegador e adicione aos Favoritos / Tela inicial.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="sobre" aria-label="Sobre">
+      <div class="section-title">
+        <h2>Sobre</h2>
+        <p class="hint">Informação objetiva, sem inventar história</p>
+      </div>
+
+      <div class="card pad">
+        <p style="margin:0; color:var(--muted);">
+          A Padaria Silber é um ponto de padaria em Campo Grande (RJ). Este site foi montado para facilitar acesso rápido a
+          rotas, contato e informações essenciais.
+        </p>
+        <p class="note" style="margin-top:10px;">
+          Se você quiser um texto “mais vendedor” (sem mentir), me diga o diferencial real: o que vocês fazem melhor (pães, doces, café, salgados, preço, rapidez, etc.).
+        </p>
+      </div>
+    </section>
+
+    <!-- ROUTES / MAP -->
+    <section id="rotas" aria-label="Rotas e localização">
+      <div class="section-title">
+        <h2>Localização</h2>
+        <p class="hint">Estr. do Campinho, 650 — Campo Grande</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card pad">
+          <div class="hours-row">
+            <strong>Endereço</strong>
+            <span style="text-align:right;">Estr. do Campinho, 650 - Campo Grande<br>Rio de Janeiro - RJ, 23070-220</span>
+          </div>
+
+          <div class="hero-ctas" style="margin-top:12px;">
+            <a class="btn primary" href="https://www.google.com/maps?q=Padaria%20Silber%20Estr.%20do%20Campinho%2C%20650%20Campo%20Grande%20Rio%20de%20Janeiro%20RJ%2023070-220" target="_blank" rel="noreferrer">
+              Abrir rotas
+            </a>
+            <a class="btn" href="tel:+5521964641924">Ligar agora</a>
+            <a class="btn" href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+          </div>
+
+          <div class="mini" style="margin-top:12px;">
+            <div class="k">Plus code</div>
+            <div class="v">4C2G+5Q Campo Grande, Rio de Janeiro - RJ</div>
+          </div>
+        </div>
+
+        <div class="map" aria-label="Mapa">
+          <iframe
+            title="Mapa: Padaria Silber"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Padaria%20Silber%20Estr.%20do%20Campinho%2C%20650%20Campo%20Grande%20Rio%20de%20Janeiro%20RJ%2023070-220&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer aria-label="Rodapé">
+      <div class="container" style="padding:0;">
+        <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <div>
+            <strong style="color:var(--text);">Padaria Silber</strong><br>
+            <span>Campo Grande · Rio de Janeiro (RJ)</span>
+          </div>
+          <div style="text-align:right;">
+            <span id="year"></span> · Site one-page (HTML puro)<br>
+            <span>Telefone: (21) 96464-1924</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // Mobile menu toggle
+    const btnMenu = document.getElementById('btnMenu');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    btnMenu?.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('show');
+      btnMenu.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close mobile menu on click
+    mobileMenu?.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if(!a) return;
+      mobileMenu.classList.remove('show');
+      btnMenu.setAttribute('aria-expanded', 'false');
+    });
+
+    // Toast helper
+    const toast = document.getElementById('toast');
+    let toastTimer = null;
+    function showToast(msg){
+      if(!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    // Copy helpers
+    async function copyText(text, okMsg){
+      try{
+        await navigator.clipboard.writeText(text);
+        showToast(okMsg || 'Copiado!');
+      }catch(err){
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        ta.remove();
+        showToast(okMsg || 'Copiado!');
+      }
+    }
+
+    document.getElementById('btnCopyAddr')?.addEventListener('click', () => {
+      const addr = document.getElementById('addrText')?.textContent?.trim() || '';
+      copyText(addr, 'Endereço copiado.');
+    });
+
+    document.getElementById('btnCopyPhone')?.addEventListener('click', () => {
+      const phone = document.getElementById('phoneText')?.textContent?.trim() || '';
+      copyText(phone, 'Telefone copiado.');
+    });
+
+    // Share button (Web Share API) fallback copies URL
+    document.getElementById('btnShare')?.addEventListener('click', async () => {
+      const shareData = {
+        title: 'Padaria Silber',
+        text: 'Padaria Silber — Endereço, rotas e telefone',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try { await navigator.share(shareData); }
+        catch (_) { /* user canceled */ }
+      } else {
+        copyText(window.location.href, 'Link copiado para compartilhar.');
+      }
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!--
+  COMO EDITAR (5 linhas):
+  1) Troque telefone: procure "+5521964641924" e "(21) 96464-1924".
+  2) Troque endereço: procure "Estr. do Campinho, 650" (aparece em 3 lugares).
+  3) Troque Instagram: procure "https://instagram.com" e substitua pelo link real.
+  4) Troque status/horário: procure "Fechado — Abre seg. às 06:00".
+  5) Troque mapa: procure a URL do iframe (google.com/maps?q=...) e ajuste a busca.
+  -->
+</body>
+</html>
